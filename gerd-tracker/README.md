@@ -44,6 +44,19 @@ This folder includes a `netlify.toml` with the build settings already filled in.
 
 No environment variables or Netlify functions are needed — it's a static app that stores everything in the browser.
 
+## Deploying to Vercel
+
+This folder includes a `vercel.json` with the build settings filled in. The repo root already has an unrelated site (the camp website), possibly on its own Vercel project — create a **separate, new** Vercel project for the tracker rather than reusing that one:
+
+1. In Vercel: **Add New... → Project**, and import the `blondepinescamp` GitHub repo again (Vercel allows the same repo to back multiple projects).
+2. Pick the branch you want to deploy (e.g. `claude/gerd-symptom-tracker-cug5az`, or `main` once this is merged).
+3. In the project's configuration screen (or later under **Settings → General**), set:
+   - **Root Directory**: `gerd-tracker`
+   - Framework preset: **Vite** (should auto-detect)
+4. Deploy. Vercel will use `gerd-tracker/vercel.json` for the build/output settings.
+
+No environment variables or serverless functions are needed here either.
+
 ## Data & privacy
 
 Everything is stored in this browser's `localStorage` under the key `gerdTracker.v1`. Because it's device/browser-specific:
