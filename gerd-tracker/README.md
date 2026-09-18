@@ -30,6 +30,20 @@ npm run build
 
 Outputs a static site to `dist/` — deployable to Vercel, Netlify, GitHub Pages, or any static host. No backend or environment variables required.
 
+## Deploying to Netlify
+
+This folder includes a `netlify.toml` with the build settings already filled in. Since this repo also contains an unrelated site at its root, point Netlify at this subfolder:
+
+1. In Netlify: **Add new site → Import an existing project**, and connect the `blondepinescamp` GitHub repo.
+2. Pick the branch you want to deploy (e.g. `claude/gerd-symptom-tracker-cug5az`, or `main` once this is merged).
+3. Under **Site settings → Build & deploy → Build settings**, set:
+   - **Base directory**: `gerd-tracker`
+   - **Build command**: `npm run build`
+   - **Publish directory**: `gerd-tracker/dist`
+4. Deploy. Netlify will pick up `gerd-tracker/netlify.toml` automatically once the base directory is set.
+
+No environment variables or Netlify functions are needed — it's a static app that stores everything in the browser.
+
 ## Data & privacy
 
 Everything is stored in this browser's `localStorage` under the key `gerdTracker.v1`. Because it's device/browser-specific:
