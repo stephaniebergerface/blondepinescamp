@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #f4f7f5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input[type="range"] {
+  accent-color: #40654d;
+}
